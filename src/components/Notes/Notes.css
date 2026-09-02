@@ -1,0 +1,38 @@
+.notes-container {
+    width: 100%;
+    height: 100%;
+
+    background-color: #a1a1a1;
+    grid-column: 3;
+    grid-row: 1/3;
+
+    padding: 10px;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 1;
+}
+
+.header {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.header select {
+    height: 20px;
+    width: 50%;
+}
+
+.notes-container textarea {
+    box-sizing: border-box;
+    grid-row: 2;
+
+    background-color: #fff3;
+    resize: none;
+    height: 91%;
+    width: 100%;
+}
+
+.notes-container textarea:focus {
+    outline: none;
+}
