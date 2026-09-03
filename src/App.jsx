@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './index.css'
 import Main from './screens/MainScreen/MainScreen.jsx'
 
 function App() {

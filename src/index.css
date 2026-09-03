@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Colores principales */
+    --primary: #6366F1;
+    --primary-dark: #4F46E5;
+    --primary-light: #EEF2FF;
+
+    /* Fondos */
+    --background: #F8FAFC;
+    --surface: #FFFFFF;
+    --surface-secondary: #F1F5F9;
+
+    /* Texto */
+    --text: #0F172A;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+
+    /* Bordes */
+    --border: #E2E8F0;
+    --border-dark: #CBD5E1;
+
+    /* Estados */
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
+
+    --font-main: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+}
+
+textarea {
+    font-family: var(--font-main);
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
