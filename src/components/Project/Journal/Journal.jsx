@@ -1,7 +1,17 @@
-function Journal() {
+import './Journal.css'
+import DayCard from "./DayCard/DayCard.jsx"
+
+function Journal({days}) {
     return (
         <>
-            <h3>Journal</h3>
+            <header>
+                <h3>Journal</h3>
+            </header>
+            <section>
+                <DayCard
+                day="September 3, 2026"
+                />
+            </section>
         </>
     )
 }

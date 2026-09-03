@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Tasks, Description, Journal } from './Project-components'
 
-function Project({ projectName }) {
+function Project({projectName}) {
 
     const [currentTab, setCurrentTab] = useState(<Tasks/>)
     const tabs = {
@@ -26,7 +26,6 @@ function Project({ projectName }) {
                 </select>
 
             </header>
-
             
             {tabs[currentTab]}
 

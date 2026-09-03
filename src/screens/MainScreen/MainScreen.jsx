@@ -4,7 +4,7 @@ import Project from "../../components/Project/Project.jsx"
 import './MainScreen.css'
 
 
-function Main() {
+function Main({currentProject}) {
     return (
         <>
             <section className="container">
