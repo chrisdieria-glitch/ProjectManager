@@ -19,10 +19,11 @@ textarea {
     font-size: 12px;
 }
 
-.description {
+.new-description {
     grid-row: 2;
 }
 
-.why-goals {
+.new-goals {
     grid-row: 3;
 }
+

@@ -4,13 +4,19 @@ import Project from "../../components/Project/Project.jsx"
 import './MainScreen.css'
 
 
-function Main({currentProject}) {
+function Main() {
+
+    const createProject = () => {
+        
+    }
+
     return (
         <>
             <section className="container">
                 <Bar/>
                 <Project
                 projectName="Project Name"
+                id="1"
                 />
                 <input className="browser"></input>
                 <Notes/>
