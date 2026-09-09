@@ -1,11 +1,13 @@
 import "./ProjectButton.css"
 
-function ProjectButton({buttonFunction,projectName,id}) {
+function ProjectButton({buttonFunction,projectName}) {
     return (
         <>
-            <button onClick={buttonFunction}>
-                <strong>{projectName}</strong>
+            <button className="projectButton" onClick={buttonFunction}>
+                <span>{projectName}</span>
             </button>
         </>
     )
 }
+
+export default ProjectButton

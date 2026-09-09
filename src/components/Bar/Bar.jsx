@@ -1,6 +1,7 @@
 import './Bar.css'
+import ProjectButton from './ProjectButton/ProjectButton.jsx'
 
-function Bar({buttonFunction}) {
+function Bar({buttonFunction,projects}) {
 
     return (
         <>
@@ -8,6 +9,11 @@ function Bar({buttonFunction}) {
                 <img src="src/assets/images.jpg" alt="profile photo"></img>
                 <section className="buttons">
                     <button className="create-project button" onClick={buttonFunction}>New Project</button>
+                    {projects.map((project) => (
+                        <ProjectButton
+                            projectName={project[0]}
+                        />
+                    ))}
                 </section>
             </div>
         </>
