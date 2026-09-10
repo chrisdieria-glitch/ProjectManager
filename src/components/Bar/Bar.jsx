@@ -1,7 +1,7 @@
 import './Bar.css'
 import ProjectButton from './ProjectButton/ProjectButton.jsx'
 
-function Bar({buttonFunction,projects}) {
+function Bar({buttonFunction,projects,buttonProjectFunction}) {
 
     return (
         <>
@@ -13,6 +13,7 @@ function Bar({buttonFunction,projects}) {
                         <ProjectButton
                             projectName={project.name}
                             id={project.id}
+                            buttonFunction={buttonProjectFunction}
                         />
                     ))}
                 </section>

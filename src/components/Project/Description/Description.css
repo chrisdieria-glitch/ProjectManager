@@ -11,18 +11,6 @@ h3 {
 
 }
 
-textarea {
-    margin: 5px 10px 10px 0;
-    border-radius: 4px;
-    border: 1px solid var(--border-dark);
-    padding: 10px;
-    font-size: 12px;
-}
-
-.new-description {
-    grid-row: 2;
-}
-
-.new-goals {
-    grid-row: 3;
+p {
+    margin: 40px;
 }

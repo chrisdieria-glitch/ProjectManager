@@ -7,7 +7,7 @@ import './MainScreen.css'
 
 function Main() {
 
-    class Project {
+    class ProjectValues {
         constructor(name,description,goals,tasks,journal,id) {
             this.name = name;
             this.description = description;
@@ -24,14 +24,17 @@ function Main() {
 
     const createProject = () => setProject(<NewProject buttonFunction={saveProject}/>)
 
-    const displayProject = () => {}
+    const displayProject = (id) => {
+        const project = projects.find(project => project.id === id);
+        setProject(<Project projectName={project.name} projectDescription={project.description} projectGoals={project.goals} />)
+    }
 
     const saveProject = () => {
         let projectName = document.getElementById("nameOfTheProject").value
         let projectDescription = document.getElementById("descriptionOfProject").value
         let projectGoals = document.getElementById("goalsOfProject").value
 
-        let project = new Project(projectName,projectDescription,projectGoals,undefined,undefined,crypto.randomUUID())
+        let project = new ProjectValues(projectName,projectDescription,projectGoals,undefined,undefined,crypto.randomUUID())
         setProjects([...projects, project])
     }
 
@@ -41,6 +44,7 @@ function Main() {
                 <Bar
                     projects={projects}
                     buttonFunction={createProject}
+                    buttonProjectFunction={displayProject}
                 />
                 {currentProject}
                 <input className="browser"></input>

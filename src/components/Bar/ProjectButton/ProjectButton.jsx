@@ -3,7 +3,7 @@ import "./ProjectButton.css"
 function ProjectButton({buttonFunction,projectName,id}) {
     return (
         <>
-            <button className="projectButton" onClick={buttonFunction}>
+            <button id={id} className="projectButton" onClick={() => buttonFunction(id)}>
                 <span>{projectName}</span>
             </button>
         </>
