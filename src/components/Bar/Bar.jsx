@@ -11,7 +11,8 @@ function Bar({buttonFunction,projects}) {
                     <button className="create-project button" onClick={buttonFunction}>New Project</button>
                     {projects.map((project) => (
                         <ProjectButton
-                            projectName={project[0]}
+                            projectName={project.name}
+                            id={project.id}
                         />
                     ))}
                 </section>

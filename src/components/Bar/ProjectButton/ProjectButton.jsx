@@ -1,6 +1,6 @@
 import "./ProjectButton.css"
 
-function ProjectButton({buttonFunction,projectName}) {
+function ProjectButton({buttonFunction,projectName,id}) {
     return (
         <>
             <button className="projectButton" onClick={buttonFunction}>

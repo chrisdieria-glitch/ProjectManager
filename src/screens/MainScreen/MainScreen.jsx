@@ -7,22 +7,32 @@ import './MainScreen.css'
 
 function Main() {
 
+    class Project {
+        constructor(name,description,goals,tasks,journal,id) {
+            this.name = name;
+            this.description = description;
+            this.goals = goals;
+            this.tasks = tasks;
+            this.journal = journal;
+            this.id = id;
+        }
+    }
+
     let projectValues = []
+    const [currentProject,setProject] = useState("") 
     const [projects,setProjects] = useState([])
 
-    const createProject = () => {
-        
-    }
+    const createProject = () => setProject(<NewProject buttonFunction={saveProject}/>)
+
+    const displayProject = () => {}
 
     const saveProject = () => {
         let projectName = document.getElementById("nameOfTheProject").value
         let projectDescription = document.getElementById("descriptionOfProject").value
         let projectGoals = document.getElementById("goalsOfProject").value
 
-        projectValues = [projectName,projectDescription,projectGoals]
-        let project = <Project projectName={projectValues[0]}/>
-
-        setProjects([...projects, projectValues])
+        let project = new Project(projectName,projectDescription,projectGoals,undefined,undefined,crypto.randomUUID())
+        setProjects([...projects, project])
     }
 
     return (
@@ -32,9 +42,7 @@ function Main() {
                     projects={projects}
                     buttonFunction={createProject}
                 />
-                <NewProject
-                    buttonFunction={saveProject}
-                />
+                {currentProject}
                 <input className="browser"></input>
                 <Notes/>
             </section>
