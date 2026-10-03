@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Tasks, Description, Journal } from './Project-components'
 
-function Project({projectName,projectDescription,projectGoals,id}) {
+function Project({projectName,projectDescription,projectGoals,tasks,id}) {
     
     const [currentTab, setCurrentTab] = useState(<Tasks/>)
     const tabs = {
-        task: <Tasks/>,
+        task: <Tasks tasks={tasks}/>,
         description: <Description description={projectDescription} goals={projectGoals}/>,
         journal: <Journal/>
     }

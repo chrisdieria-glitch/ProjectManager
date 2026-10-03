@@ -5,7 +5,15 @@ import { NewProject } from "../../components/Project/Project-components.jsx"
 import { useState } from 'react'
 import './MainScreen.css'
 
-function Main() {
+function MainScreen() {
+
+    /////  VARIABLES  //////
+
+    let projectValues = []
+    const [currentProject,setProject] = useState("") 
+    const [projects,setProjects] = useState([])
+
+    // clase para crear proyectos
 
     class ProjectValues {
         constructor(name,description,goals,tasks,journal,id) {
@@ -18,25 +26,38 @@ function Main() {
         }
     }
 
-    let projectValues = []
-    const [currentProject,setProject] = useState("") 
-    const [projects,setProjects] = useState([])
+    //////  FUNCTIONS  ////// 
+    
+    // funcion para crear proyecto
 
-    const createProject = () => setProject(<NewProject buttonFunction={saveProject}/>)
+    const createProject = () => {
+        setProject(<NewProject buttonFunction={saveProject}/>)
+    }
+
+    // funcion que despliega el proyecto
 
     const displayProject = (id) => {
         const project = projects.find(project => project.id === id);
-        setProject(<Project projectName={project.name} projectDescription={project.description} projectGoals={project.goals} />)
+        setProject(<Project 
+                    projectName={project.name} 
+                    projectDescription={project.description}    
+                    projectGoals={project.goals} 
+                    tasks={project.tasks}
+                    />)
     }
+
+    // Funcion que guarda los proyectos
 
     const saveProject = () => {
         let projectName = document.getElementById("nameOfTheProject").value
         let projectDescription = document.getElementById("descriptionOfProject").value
         let projectGoals = document.getElementById("goalsOfProject").value
 
-        let project = new ProjectValues(projectName,projectDescription,projectGoals,undefined,undefined,crypto.randomUUID())
+        let project = new ProjectValues(projectName,projectDescription,projectGoals,[],[],crypto.randomUUID())
         setProjects([...projects, project])
     }
+
+    //////  DISENO ///////
 
     return (
         <>
@@ -54,4 +75,4 @@ function Main() {
     )
 }
 
-export default Main
+export default MainScreen

@@ -1,0 +1,15 @@
+.new-task-card {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+strong {
+    grid-column: 1;
+}
+
+aside {
+    display:flex;
+    grid-column: 2;
+
+    flex-direction: column;
+}

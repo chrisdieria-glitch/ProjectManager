@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './index.css'
-import Main from './screens/MainScreen/MainScreen.jsx'
+import MainScreen from './screens/MainScreen/MainScreen.jsx'
 
 function App() {
 
   return (
     <>
-      <Main/>
+      <MainScreen/>
     </>
   )
 }
