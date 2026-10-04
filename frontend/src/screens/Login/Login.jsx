@@ -35,7 +35,7 @@ function Login() {
             console.log(res.respuesta)
 
             // Cuando django response correctamente 
-            navigate('/main')
+            navigate('/newuser')
         })
         .catch(error => {
             console.error(error)
