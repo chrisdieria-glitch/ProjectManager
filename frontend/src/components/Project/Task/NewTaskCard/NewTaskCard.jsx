@@ -4,10 +4,10 @@ function NewTaskCard() {
     return (
         <>
             <div className="new-task-card">
-                <strong>New Task</strong>
-                <aside>
-                    <input id="taskName"></input>
-                    <input id="taskDescription"></input>
+                <strong className="new-task-card__title">New Task</strong>
+                <aside className="new-task-card__fields">
+                    <input id="taskName" className="new-task-card__name"></input>
+                    <input id="taskDescription" className="new-task-card__description"></input>
                 </aside>
             </div>
         </>

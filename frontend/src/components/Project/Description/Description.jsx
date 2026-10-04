@@ -5,11 +5,11 @@ function Description({description,goals}) {
 
     return (
         <> 
-            <section className="project-details">
-                <h3>Project Details</h3>
-                <label>Description</label>
-                <p>{description}</p>
-                <p>{goals}</p>
+            <section className="description">
+                <h3 className="description__title">Project Details</h3>
+                <label className="description__label">Description</label>
+                <p className="description__text">{description}</p>
+                <p className="description__text">{goals}</p>
             </section>
         </>
     )

@@ -4,10 +4,10 @@ import DayCard from "./DayCard/DayCard.jsx"
 function Journal({days}) {
     return (
         <>
-            <header>
-                <h3>Journal</h3>
+            <header className="journal__header">
+                <h3 className="journal__title">Journal</h3>
             </header>
-            <section>
+            <section className="journal__list">
                 <DayCard
                 day="September 3, 2026"
                 />

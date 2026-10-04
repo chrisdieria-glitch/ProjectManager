@@ -1,4 +1,4 @@
-.notes-container {
+.notes {
     width: 100%;
     height: 100%;
 
@@ -6,26 +6,26 @@
     grid-column: 3;
     grid-row: 1/3;
 
-    padding: 10px;
+    padding: 0.625rem;
     grid-template-rows: 10% 90%;
     grid-template-columns: 1;
 
-    border-left: 2px solid var(--border-dark)
+    border-left: 0.125rem solid var(--border-dark)
 }
 
-.header {
+.notes__header {
     grid-row: 1;
     display: flex;
     align-items: center;
-    gap: 10px
+    gap: 0.625rem
 }
 
-.header select {
-    height: 20px;
+.notes__select {
+    height: 1.25rem;
     width: 50%;
 }
 
-.notes-container textarea {
+.notes__textarea {
     box-sizing: border-box;
     grid-row: 2;
 
@@ -37,6 +37,6 @@
     border: 1px solid var(--border-dark)
 }
 
-.notes-container textarea:focus {
+.notes__textarea:focus {
     outline: none;
 }

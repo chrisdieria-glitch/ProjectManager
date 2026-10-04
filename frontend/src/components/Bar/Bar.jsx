@@ -5,10 +5,10 @@ function Bar({buttonFunction,projects,buttonProjectFunction}) {
 
     return (
         <>
-            <div className="bar-container">
-                <img src="src/assets/images.jpg" alt="profile photo"></img>
-                <section className="buttons">
-                    <button className="create-project button" onClick={buttonFunction}>New Project</button>
+            <div className="bar main-screen__bar">
+                <img className="bar__avatar" src="src/assets/images.jpg" alt="profile photo"></img>
+                <section className="bar__list">
+                    <button className="bar__new-project" onClick={buttonFunction}>New Project</button>
                     {projects.map((project) => (
                         <ProjectButton
                             projectName={project.name}

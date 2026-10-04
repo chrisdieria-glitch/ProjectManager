@@ -61,14 +61,14 @@ function MainScreen() {
 
     return (
         <>
-            <section className="container">
+            <section className="main-screen">
                 <Bar
                     projects={projects}
                     buttonFunction={createProject}
                     buttonProjectFunction={displayProject}
                 />
                 {currentProject}
-                <input className="browser"></input>
+                <input className="main-screen__search"></input>
                 <Notes/>
             </section>
         </>

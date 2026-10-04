@@ -11,18 +11,18 @@ function Project({projectName,projectDescription,projectGoals,tasks,id}) {
     }
 
     return (
-        <section className="project-container">
+        <section className="project">
 
-            <header>
+            <header className="project__header">
 
-                <h2>{projectName}</h2>
+                <h2 className="project__title">{projectName}</h2>
 
-                <select onChange={(e) => {
+                <select className="project__tabs" onChange={(e) => {
                     setCurrentTab(e.target.value)
                 }}> 
-                    <option value="task">Task</option>
-                    <option value="description">Description</option>
-                    <option value="journal">Journal</option>
+                    <option className="project__tab-option" value="task">Task</option>
+                    <option className="project__tab-option" value="description">Description</option>
+                    <option className="project__tab-option" value="journal">Journal</option>
                 </select>
 
             </header>

@@ -3,12 +3,12 @@ import './Notes.css'
 function Notes() {
     return (
         <>
-            <div className="notes-container">
-                <div className="header">
-                    <h2>Notes</h2>
-                    <select></select>
+            <div className="notes">
+                <div className="notes__header">
+                    <h2 className="notes__title">Notes</h2>
+                    <select className="notes__select"></select>
                 </div>
-                <textarea>
+                <textarea className="notes__textarea">
 
                 </textarea>
             </div>

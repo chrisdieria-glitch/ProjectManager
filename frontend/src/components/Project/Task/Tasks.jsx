@@ -6,15 +6,15 @@ function Tasks({tasks,buttonFunction}) {
 
     return (
         <>
-            <header>
+            <header className="tasks__header">
 
-                <h3>Tasks</h3>
-                <button onClick={buttonFunction}>Add Task</button>
+                <h3 className="tasks__title">Tasks</h3>
+                <button className="tasks__add" onClick={buttonFunction}>Add Task</button>
                 <NewTaskCard/>
 
             </header>
 
-            <section>
+            <section className="tasks__list">
 
                 {tasks.map((task) => {
 

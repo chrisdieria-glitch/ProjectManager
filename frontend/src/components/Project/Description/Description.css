@@ -1,4 +1,4 @@
-.project-details {
+.description {
     display: grid;
     grid-template-rows: 7% 20% 20% 53%;
     grid-template-columns: 1;
@@ -6,11 +6,11 @@
     width: 100%;
 }
 
-h3 {
+.description__title {
     grid-row: 1;
 
 }
 
-p {
-    margin: 40px;
+.description__text {
+    margin: 2.5rem;
 }

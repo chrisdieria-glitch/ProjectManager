@@ -3,10 +3,10 @@ import './DayCard.css'
 function DayCard({day}) {
     return (
         <>
-            <header>
-                <strong>{day}</strong>
+            <header className="day-card">
+                <strong className="day-card__date">{day}</strong>
             </header>
-            <textarea>
+            <textarea className="day-card__input">
                 
             </textarea>
         </>

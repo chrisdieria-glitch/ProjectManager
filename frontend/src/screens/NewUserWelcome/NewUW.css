@@ -1,0 +1,71 @@
+.welcome-card__new-user {
+    font-size: 1.25rem;
+
+    box-sizing: border-box;
+    margin: 10rem auto;
+
+    height: 40rem;
+    width: 50rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+
+    background-color: var(--primary-light);
+    border: 0.125rem solid var(--primary-dark);
+    border-radius: 0.9375rem;
+    padding: 2rem 4rem;
+
+    box-shadow: 0.4375rem 0.4375rem 0rem var(--primary-dark);
+
+    animation: slideFromTop 0.8s ease-out;
+}
+
+.welcome-card__title {
+    margin: 0;
+    font-size: 2.5em;
+    color: var(--text);
+}
+
+.welcome-card__text {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.welcome-card__button {
+    align-self: center;
+    margin-top: 0.5rem;
+
+    padding: 0.875rem 1.5rem;
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: bold;
+
+    background-color: var(--primary);
+    color: var(--surface);
+    border: 0.1875rem solid #000;
+    border-radius: 0.625rem;
+    box-shadow: 0.3125rem 0.3125rem 0rem #000;
+
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.welcome-card__button:active {
+    transform: scale(0.97);
+}
+
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-6.25rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

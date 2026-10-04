@@ -1,19 +1,18 @@
-.project-container {
+.project {
     grid-column: 2;
     grid-row: 2;
 
     width: 100%;
 }
 
-.project-container header {
+.project__header {
     display: flex;
 }
 
-header h2 { 
+.project__title { 
     display: inline;
 }
 
-header select {
+.project__tabs {
     display: inline;
 }
-
