@@ -9,6 +9,8 @@ function MainScreen() {
 
     /////  VARIABLES  //////
 
+    const userId = localStorage.getItem("userId")
+
     let projectValues = []
     const [currentProject,setProject] = useState("") 
     const [projects,setProjects] = useState([])
@@ -27,7 +29,6 @@ function MainScreen() {
     }
 
     //////  FUNCTIONS  ////// 
-    
     // funcion para crear proyecto
 
     const createProject = () => {
@@ -55,9 +56,22 @@ function MainScreen() {
 
         let project = new ProjectValues(projectName,projectDescription,projectGoals,[],[],crypto.randomUUID())
         setProjects([...projects, project])
+
+        fetch("http://127.0.0.1:8000/create_project/",{
+            method: "POST",
+            body: JSON.stringify({
+                name : projectName,
+                description : projectDescription,
+                goals : projectGoals,
+                username : userId
+            }),
+            headers: {"Content-type" : "application/json"}
+        })
+        .then(res=>res.json())
+        .then(res=>console.log(res.respuesta))
     }
 
-    //////  DISENO ///////
+    // DISENO
 
     return (
         <>

@@ -1,0 +1,23 @@
+.day-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    padding: 0.75rem 1rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.day-card__date {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.day-card__input {
+    min-height: 7rem;
+}

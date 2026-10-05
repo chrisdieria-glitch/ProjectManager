@@ -17,7 +17,7 @@ function Project({projectName,projectDescription,projectGoals,tasks,id}) {
 
                 <h2 className="project__title">{projectName}</h2>
 
-                <select className="project__tabs" onChange={(e) => {
+                <select className="select" onChange={(e) => {
                     setCurrentTab(e.target.value)
                 }}> 
                     <option className="project__tab-option" value="task">Task</option>

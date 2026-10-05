@@ -14,34 +14,48 @@ body {
 }
 
 .main-screen {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     display: grid;
-    grid-template-columns: 10% 70% 20%;
-    grid-template-rows: 10% 90%;
+    grid-template-columns: 15rem 1fr 20rem;
+    grid-template-rows: auto 1fr;
 }
 
+/* El sidebar ocupa toda la altura, en su columna */
 .main-screen__bar {
     grid-column: 1;
-    grid-row: 1/3;
+    grid-row: 1 / 3;
 }
 
+/* La barra de busqueda va arriba, en la columna central */
 .main-screen__search {
-    margin: 0.9375rem;
-    width: 18.75rem;
-    height: 1.5625rem;
-
-    border: 1px solid #000;
-    border-radius: 3.125rem;
-    background-color: #fff2;
-    padding: 0.125rem 0.625rem;
-
     grid-column: 2;
     grid-row: 1;
     justify-self: center;
+    align-self: center;
+
+    width: min(28rem, 100%);
+    margin: 1rem 0 0.5rem 0;
+
+    font-family: var(--font-main);
+    font-size: var(--text-sm);
+    color: var(--text);
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.75rem;
+
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.main-screen__search::placeholder {
+    color: var(--text-muted);
 }
 
 .main-screen__search:focus {
     outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
 }

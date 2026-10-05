@@ -1,0 +1,12 @@
+.journal__title {
+    margin: 0;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.journal__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}

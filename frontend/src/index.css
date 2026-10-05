@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import './styles/ui.css';
 
 :root {
     /* Colores principales */
@@ -25,12 +26,34 @@
     --warning: #F59E0B;
     --error: #EF4444;
 
+    /* Radios */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-pill: 3.125rem;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.06);
+    --shadow-md: 0 4px 12px -2px rgb(15 23 42 / 0.10);
+    --shadow-lg: 0 12px 32px -8px rgb(15 23 42 / 0.14);
+
+    /* Tamaños de texto */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.375rem;
+    --text-2xl: 1.75rem;
+
     --font-main: 'Montserrat', sans-serif;
 }
 
 body {
     margin: 0;
     font-family: var(--font-main);
+    font-size: var(--text-md);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
 }
 
 textarea {

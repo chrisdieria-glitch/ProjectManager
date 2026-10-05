@@ -9,7 +9,7 @@ function Tasks({tasks,buttonFunction}) {
             <header className="tasks__header">
 
                 <h3 className="tasks__title">Tasks</h3>
-                <button className="tasks__add" onClick={buttonFunction}>Add Task</button>
+                <button className="btn btn--primary btn--sm" onClick={buttonFunction}>Add Task</button>
                 <NewTaskCard/>
 
             </header>

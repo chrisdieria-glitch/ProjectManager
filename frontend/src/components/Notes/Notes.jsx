@@ -6,9 +6,10 @@ function Notes() {
             <div className="notes">
                 <div className="notes__header">
                     <h2 className="notes__title">Notes</h2>
-                    <select className="notes__select"></select>
+                    <select className="select"></select>
                 </div>
-                <textarea className="notes__textarea">
+
+                <textarea className="textarea notes__textarea">
 
                 </textarea>
             </div>

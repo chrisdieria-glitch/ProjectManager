@@ -6,7 +6,7 @@ function DayCard({day}) {
             <header className="day-card">
                 <strong className="day-card__date">{day}</strong>
             </header>
-            <textarea className="day-card__input">
+            <textarea className="textarea day-card__input">
                 
             </textarea>
         </>

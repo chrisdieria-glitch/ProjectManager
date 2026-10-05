@@ -1,9 +1,6 @@
-.project-button {
-    margin: 0.625rem;
-    font-size: 0.75rem;
-
-    border: none;
-    padding: 0.625rem 0.625rem;
-
-    box-shadow: 0 0 0.625rem #0001;
+.project-button__name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

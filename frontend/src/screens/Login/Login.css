@@ -1,89 +1,62 @@
 .login-form {
-    font-size: 1.25rem;
+    box-sizing: border-box;
+    width: min(26em, 92vw);
+    margin: 4em auto;
 
-    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
     background-color: var(--surface);
-    height: 30rem;
-    width: 35rem;
-    border-radius: 0.9375rem;
-    padding: 2rem 3rem;
-    color: var(--text);
-    border: 0.1875rem solid #000;
-    box-shadow: 0.4375rem 0rem 0.4375rem #000;
-    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2em;
 }
 
-
 .login-form__title {
-    margin-bottom: 0;
-    font-size: 2.5em;
+    margin: 0;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text);
 }
 
 .login-form__subtitle {
-    margin-top: 0.3125rem;
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
 }
 
 .login-form__fields {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
-    margin-top: 2rem;
+    align-items: flex-start;
+    gap: 0.75em;
+    margin-top: 1em;
 }
 
-
-.login-form__field:focus {
-    outline:none;
-}
-
-
-.login-form__field::placeholder {
-    color: var(--text-muted)
-}
-
-
-.login-form__field {
-    font-size: 1.2em;
-    padding: 0.625rem 1.25rem;
-    border-radius: 3.125rem;
-    border: none;
-    background-color: var(--surface-secondary);
+.login-form__emember {
+    width: 1.125em;
+    height: 1.125em;
+    accent-color: var(--primary);
+    cursor: pointer;
 }
 
 .login-form__submit {
-    padding: 1.25rem 3.125rem;
-    margin-top: 2em;
-    border-radius: 0.9375rem;
-    font-size: 1.2rem;
-    background-color: var(--primary);
-    border: 0.1875rem solid #000;
-    box-shadow: 0.3125rem 0.3125rem 0.25rem #000;
-    font-family:  var(--font-main);
-    font-weight: bold;
-    transition: transform 0.1s ease, opacity 0.2s ease;
+    margin-top: 0.5em;
 }
 
 .login-form__spinner {
-    font-size: 0.95em;
-    display: inline-block; 
-    width: 1.125rem; 
-    height: 1.125rem; 
-    border: 0.1875rem solid rgba(255, 255, 255, 0.3); 
-    border-top-color: white; 
-    border-radius: 50%; 
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgb(255 255 255 / 0.35);
+    border-top-color: var(--surface);
+    border-radius: 50%;
     animation: login-spin 0.7s linear infinite;
-}   
-
-.login-form__submit:active { 
-    transform: scale(0.95); 
-} 
-
-.login-form__submit:disabled { 
-    cursor: not-allowed; 
-    opacity: 0.8; 
 }
 
-@keyframes login-spin { 
-    to { 
-        transform: rotate(360deg); 
-    } 
+@keyframes login-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

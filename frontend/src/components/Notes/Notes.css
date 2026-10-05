@@ -1,42 +1,35 @@
 .notes {
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--surface);
     grid-column: 3;
-    grid-row: 1/3;
+    grid-row: 1 / 3;
 
-    padding: 0.625rem;
-    grid-template-rows: 10% 90%;
-    grid-template-columns: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 
-    border-left: 0.125rem solid var(--border-dark)
+    padding: 1rem;
+    background-color: var(--surface);
+    border-left: 1px solid var(--border);
+
+    overflow: hidden;
 }
 
 .notes__header {
-    grid-row: 1;
     display: flex;
     align-items: center;
-    gap: 0.625rem
+    justify-content: space-between;
+    gap: 0.5rem;
 }
 
-.notes__select {
-    height: 1.25rem;
-    width: 50%;
+.notes__title {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
 }
 
 .notes__textarea {
-    box-sizing: border-box;
-    grid-row: 2;
-
-    background-color: var(--surface-secondary);
-    resize: none;
-    height: 91%;
-    width: 100%;
-
-    border: 1px solid var(--border-dark)
-}
-
-.notes__textarea:focus {
-    outline: none;
+    flex: 1;
+    min-height: 0;
 }
