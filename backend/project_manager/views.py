@@ -24,3 +24,12 @@ def create_project(request):
             description=new_project_data['description']
         )
         return JsonResponse({"respuesta": "Proyecto Creado"})
+
+@csrf_exempt
+def get_project(request):
+     data = json.loads(request.body)
+     userId = data['username']
+     projects = Project.objects.filter(username_id=userId)
+     return JsonResponse({
+          "proyectos" :list(projects.values())
+     })
