@@ -4,6 +4,9 @@ import Project from "../../components/Project/Project.jsx"
 import { NewProject } from "../../components/Project/Project-components.jsx"
 import { useEffect,useState } from 'react'
 import './MainScreen.css'
+import NewTaskCard from '../../components/Project/Task/NewTaskCard/NewTaskCard.jsx'
+
+
 
 function MainScreen() {
 
@@ -11,29 +14,60 @@ function MainScreen() {
 
     const [currentProject,setProject] = useState('')
     const [projects,setProjects] = useState([])
+    const [tasks,setTasks] = useState([])
     const userId = localStorage.getItem("userId")
 
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/send_projects/", {
-            method: "POST",
-            body: JSON.stringify({
-                username: userId
-            }),
-            headers: {
+    const getProjects = () => {
+         fetch("http://127.0.0.1:8000/send_projects/", {
+             method: "POST",
+             body: JSON.stringify({
+                 username: userId
+             }),
+             headers: {
                 "Content-type": "application/json"
-            }
-        })
+             }
+         })
         .then(res => res.json())
         .then(res => {
-            setProjects(res.proyectos)
-        })
-    }, [])
+             setTasks(res.tasks)
+             setProjects(res.proyectos)
+         })
+     }
+
+    useEffect(() => {
+        getProjects()
+    },[])
 
     //////  FUNCTIONS  ////// 
     // funcion para crear proyecto
 
     const createProject = () => {
         setProject(<NewProject buttonFunction={saveProject}/>)
+    } 
+
+    const createTask = (setTaskCard) => {
+        console.log(currentProject.id)
+        setTaskCard(<NewTaskCard buttonFunction={saveTask} projectId={currentProject.id}/>)
+    }
+
+    const saveTask = () => {
+        const taskName = document.getElementById("taskName").value
+        const taskDescription = document.getElementById("taskDescription").value
+
+        fetch("http://127.0.0.1:8000/create_project/",{
+            method: "POST",
+            body: JSON.stringify({
+                title : taskName,
+                description : taskDescription, 
+                project_id : proejctId
+            }),
+            headers: {"Content-type" : "application/json"}
+        })
+        .then(res=>res.json())
+        .then(res=>console.log(res.respuesta))
+
+        getProjects()
+        setTaskCard("")
     }
 
     // funcion que despliega el proyecto
@@ -45,12 +79,19 @@ function MainScreen() {
                 projectName={project.name} 
                 projectDescription={project.description}    
                 projectGoals={project.goals} 
+                tasks={tasks}
+                taskButtonFunction={createTask}
+                id={project.id}
             />)
     }
 
     // Funcion que guarda los proyectos
 
     const saveProject = () => {
+        const projectName = document.getElementById("nameOfTheProject").value
+        const projectDescription = document.getElementById("descriptionOfProject").value
+        const projectGoals = document.getElementById("goalsOfProject").value
+
         fetch("http://127.0.0.1:8000/create_project/",{
             method: "POST",
             body: JSON.stringify({
@@ -63,6 +104,8 @@ function MainScreen() {
         })
         .then(res=>res.json())
         .then(res=>console.log(res.respuesta))
+
+        getProjects();
     }
 
     // DISENO

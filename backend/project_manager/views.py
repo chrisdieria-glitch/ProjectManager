@@ -30,6 +30,18 @@ def get_project(request):
      data = json.loads(request.body)
      userId = data['username']
      projects = Project.objects.filter(username_id=userId)
+     tasks = Task.objects.filter(project__in=projects)
      return JsonResponse({
-          "proyectos" :list(projects.values())
+          "proyectos" :list(projects.values()),
+          "tasks": list(tasks.values())
      })
+
+@csrf_exempt
+def create_task(request):
+     new_task_data = json.loads(request.body)
+     Task.objects.create(
+        title=new_task_data['title'],
+        descripiton=new_task_data['description'],
+        project_id=new_task_data['project_id']
+     )
+     return JsonResponse({"respuesta": "Tarea Creado"})
