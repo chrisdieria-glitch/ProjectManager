@@ -10,12 +10,22 @@ import NewTaskCard from '../../components/Project/Task/NewTaskCard/NewTaskCard.j
 
 function MainScreen() {
 
+    const [addTaskCard, setTaskCard] = useState("");
+
     /////  VARIABLES  //////
 
+    let userId
     const [currentProject,setProject] = useState('')
     const [projects,setProjects] = useState([])
     const [tasks,setTasks] = useState([])
-    const userId = localStorage.getItem("userId")
+    if ( localStorage.getItem("userId") !== null) {
+        userId = localStorage.getItem("userId")
+    }
+    else if ( sessionStorage.getItem("userId") !== null ) {
+        userId = sessionStorage.getItem("userId")
+    }
+
+    console.log(userId)
 
     const getProjects = () => {
          fetch("http://127.0.0.1:8000/send_projects/", {
@@ -31,6 +41,8 @@ function MainScreen() {
         .then(res => {
              setTasks(res.tasks)
              setProjects(res.proyectos)
+             console.log(res.tasks)
+             console.log(res.proyectos)
          })
      }
 
@@ -45,21 +57,24 @@ function MainScreen() {
         setProject(<NewProject buttonFunction={saveProject}/>)
     } 
 
-    const createTask = (setTaskCard) => {
-        console.log(currentProject.id)
-        setTaskCard(<NewTaskCard buttonFunction={saveTask} projectId={currentProject.id}/>)
+    const createTask = (setTaskCard,projectId) => {
+        console.log(projectId)
+        setTaskCard(<NewTaskCard buttonFunction={saveTask} projectId={projectId} setTaskCard={setTaskCard}/>)
     }
 
-    const saveTask = () => {
+    function saveTask(projectId) {
+
+        console.log("PROJECT ID:", projectId);
+
         const taskName = document.getElementById("taskName").value
         const taskDescription = document.getElementById("taskDescription").value
 
-        fetch("http://127.0.0.1:8000/create_project/",{
+        fetch("http://127.0.0.1:8000/create_task/",{
             method: "POST",
             body: JSON.stringify({
                 title : taskName,
                 description : taskDescription, 
-                project_id : proejctId
+                project_id : projectId
             }),
             headers: {"Content-type" : "application/json"}
         })
@@ -74,20 +89,24 @@ function MainScreen() {
 
     const displayProject = (id) => {
         const project = projects.find(project => project.id === id);
+        const projectTasks = tasks.filter(task => task.project_id === id)
+        
         setProject(
             <Project 
                 projectName={project.name} 
                 projectDescription={project.description}    
                 projectGoals={project.goals} 
-                tasks={tasks}
+                tasks={projectTasks}
                 taskButtonFunction={createTask}
                 id={project.id}
             />)
+
     }
 
     // Funcion que guarda los proyectos
 
     const saveProject = () => {
+
         const projectName = document.getElementById("nameOfTheProject").value
         const projectDescription = document.getElementById("descriptionOfProject").value
         const projectGoals = document.getElementById("goalsOfProject").value
@@ -105,6 +124,10 @@ function MainScreen() {
         .then(res=>res.json())
         .then(res=>console.log(res.respuesta))
 
+        setTimeout(
+            getProjects(),
+            1000
+        )
         getProjects();
     }
 
@@ -118,7 +141,9 @@ function MainScreen() {
                     buttonFunction={createProject}
                     buttonProjectFunction={displayProject}
                 />
-                {currentProject}
+                <div className="projects">
+                    {currentProject}
+                </div>
                 <input className="main-screen__search"></input>
                 <Notes/>
             </section>

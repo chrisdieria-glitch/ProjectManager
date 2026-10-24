@@ -13,7 +13,7 @@ function Tasks({tasks,buttonFunction,projectId}) {
                 <h3 className="tasks__title">Tasks</h3>
                 <button 
                     className="btn btn--primary btn--sm" 
-                    onClick={() => buttonFunction(setTaskCard)}
+                    onClick={() => buttonFunction(setTaskCard, projectId)}
                 >Add Task
                 </button>
                 {addTaskCard}

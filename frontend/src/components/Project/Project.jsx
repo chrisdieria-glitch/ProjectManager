@@ -10,12 +10,12 @@ function Project({
     taskButtonFunction}) {
 
     
-    const [currentTab, setCurrentTab] = useState(<Tasks/>)
+    const [currentTab, setCurrentTab] = useState("task")
     const tabs = {
         task: <Tasks 
                 tasks={tasks}
                 buttonFunction={taskButtonFunction}
-                proejctId={id}
+                projectId={id}
             />,
         description: <Description description={projectDescription} goals={projectGoals}/>,
         journal: <Journal/>

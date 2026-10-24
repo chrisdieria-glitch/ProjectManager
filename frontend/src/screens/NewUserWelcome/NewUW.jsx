@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 function NewUW() {
 
-    const username = "Chris12DF"
     const navigate = useNavigate()
+    const username = localStorage.getItem('username') || sessionStorage.getItem("username")
 
     return (
         <>

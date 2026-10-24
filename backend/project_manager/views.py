@@ -6,13 +6,15 @@ from .models import Users,Project,Task,Journal
 
 @csrf_exempt
 def create_user(request):
-    if request.method == "POST":
-        new_user_data = json.loads(request.body)
-        Users.objects.create(email=new_user_data['email'],username=new_user_data['username'],password=new_user_data['password'])
-        user = Users.objects.get(username=new_user_data['username'])
-        return JsonResponse({"respuesta": "Usuario Creado", "id": user.id })
-    if request.method == "GET":
-        return HttpResponse("Hola")
+     new_user_data = json.loads(request.body)
+     if Users.objects.filter(email=new_user_data['email']).exists() and Users.objects.filter(username=new_user_data['username']).exists():
+          return JsonResponse({"respuesta": "Email is already register"})
+     elif Users.objects.filter(username=new_user_data["username"]).exists():
+          return JsonResponse({"respuesta": "Username is taken"})
+     else:
+          Users.objects.create(email=new_user_data['email'],username=new_user_data['username'],password=new_user_data['password'])
+          user = Users.objects.get(username=new_user_data['username'])
+          return JsonResponse({"respuesta": "User created", "id": user.id , "username" : user.username})
 
 @csrf_exempt
 def create_project(request):
@@ -39,9 +41,25 @@ def get_project(request):
 @csrf_exempt
 def create_task(request):
      new_task_data = json.loads(request.body)
+
      Task.objects.create(
         title=new_task_data['title'],
-        descripiton=new_task_data['description'],
+        description=new_task_data['description'],
         project_id=new_task_data['project_id']
      )
      return JsonResponse({"respuesta": "Tarea Creado"})
+
+@csrf_exempt
+def log_in(request):
+    user_data = json.loads(request.body)
+    print(f"BODY: {request.body}")
+    user = Users.objects.get(username=user_data['username'])
+    if user.password == user_data["password"]:
+         return JsonResponse({
+              "respuesta": "Log in suscessful",
+              "id": user.id
+         })
+    else:
+         return JsonResponse({
+              "respuesta": "Username or password wrong"
+         })
